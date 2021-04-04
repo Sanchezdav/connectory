@@ -1,8 +1,6 @@
 <%= form_with(model: post) do |form| %>
   <% if post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
-
+    <div class="bg-red-500 p-2 mb-3 text-white">
       <ul>
         <% post.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -11,12 +9,15 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+  <div class="field mb-8">
+    <%= form.text_field :title, placeholder: 'Title', class: 'block border border-grey-light w-full p-3 rounded' %>
+  </div>
+
+  <div class="field mb-4">
+    <%= form.rich_text_area :content, placeholder: "What's your question?..." %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Publish', class: 'w-full text-center py-3 rounded bg-green-500 text-white hover:bg-green-600 duration-300 cursor-pointer' %>
   </div>
 <% end %>

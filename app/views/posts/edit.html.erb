@@ -1,6 +1,12 @@
-<h1>Editing Post</h1>
-
-<%= render 'form', post: @post %>
-
-<%= link_to 'Show', @post %> |
-<%= link_to 'Back', posts_path %>
+<div class="sm:max-w-screen-lg mx-auto flex flex-col items-center justify-center">
+  <div class="bg-white p-5 rounded shadow-md text-black w-full">
+    <div class="flex items-center justify-between mb-5">
+      <h1 class="text-4xl">Edit question</h1>
+      <%= link_to 'Go to question', @post, class: 'text-blue-500 underline hover:text-blue-700' %>
+    </div>
+    <%= render 'form', post: @post %>
+    <div class="text-center mt-5">
+      <%= link_to 'Back', authenticated_root_path, class: 'text-blue-500 underline hover:text-blue-700' %>
+    </div>
+  </div>
+</div>

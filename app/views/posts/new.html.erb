@@ -1,5 +1,9 @@
-<h1>New Post</h1>
-
-<%= render 'form', post: @post %>
-
-<%= link_to 'Back', posts_path %>
+<div class="max-w-screen-lg mx-auto flex flex-col items-center justify-center">
+  <div class="bg-white p-5 rounded shadow-md text-black w-full">
+    <h1 class="text-4xl mb-5">Create a new question</h1>
+    <%= render 'form', post: @post %>
+    <div class="text-center mt-5">
+      <%= link_to 'Back', authenticated_root_path, class: 'text-blue-500 underline hover:text-blue-700' %>
+    </div>
+  </div>
+</div>
