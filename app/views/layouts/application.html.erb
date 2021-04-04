@@ -12,11 +12,7 @@
   </head>
 
   <body class="bg-gray-100 h-full">
-    <% if notice %>
-      <p class="notice"><%= notice %></p>
-    <% elsif alert %>
-      <p class="alert"><%= alert %></p>
-    <% end %>
+    <%= render 'shared/alerts' %>
 
     <%= yield %>
   </body>

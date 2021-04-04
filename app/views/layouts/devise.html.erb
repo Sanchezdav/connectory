@@ -12,11 +12,7 @@
   </head>
 
   <body class="bg-gray-100 h-full">
-    <% if notice %>
-      <p class="notice"><%= notice %></p>
-    <% elsif alert %>
-      <p class="alert"><%= alert %></p>
-    <% end %>
+    <%= render 'shared/alerts' %>
 
     <div class="max-w-sm mx-auto flex flex-col items-center justify-center px-2">
       <h1 class="text-4xl font-medium text-blue-600 mt-16 mb-5">
