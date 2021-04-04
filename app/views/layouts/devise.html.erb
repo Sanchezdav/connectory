@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html class="h-full">
+  <head>
+    <title>Connectory</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag "application", "data-turbo-track": "reload" %>
+  </head>
+
+  <body class="bg-gray-100 h-full">
+    <% if notice %>
+      <p class="notice"><%= notice %></p>
+    <% elsif alert %>
+      <p class="alert"><%= alert %></p>
+    <% end %>
+
+    <div class="max-w-sm mx-auto flex flex-col items-center justify-center px-2">
+      <h1 class="text-4xl font-medium text-blue-600 mt-16 mb-5">
+        <%= link_to 'Connectory', root_path %>
+      </h1>
+      <div class="bg-white px-6 py-8 rounded shadow-md text-black w-full">
+        <%= yield %>
+      </div>
+    </div>
+  </body>
+</html>
