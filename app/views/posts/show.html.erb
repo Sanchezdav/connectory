@@ -19,7 +19,7 @@
     <p><%= @post.content %></p>
   </main>
   <footer>
-    <h2 class="text-2xl mb-5">Comments (<%= @post.comments.count %>)</h2>
+    <h2 class="text-2xl mb-5">Comments (<%= @post.comments_count %>)</h2>
 
     <%= form_with(model: [@post, @comment], method: :post) do |form| %>
       <div class="mb-3">
