@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     root 'posts#index', as: :authenticated_root
     resources :posts do
       resources :comments, only: [:create, :destroy]
+      resource :like, only: [:create, :destroy]
     end
   end
 
