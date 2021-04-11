@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   
   authenticated :user do
     root 'posts#index', as: :authenticated_root
-    resources :posts
+    resources :posts do
+      resources :comments, only: [:create, :destroy]
+    end
   end
 
 end

@@ -1,14 +1,35 @@
-<p id="notice"><%= notice %></p>
+<article class="bg-white rounded shadow-md p-5">
+  <header>
+    <div class="flex justify-between items-center mb-5">
+      <%= link_to '👈 Back to home', authenticated_root_path, class: 'text-blue-500 underline hover:text-blue-700' %>
+      <p class="text-right text-sm text-gray-400"><%= time_ago_in_words(@post.created_at) %> ago</p>
+    </div>
+    <h1 class="text-4xl mb-3"><%= @post.title %></h1>
+    <div class="mb-8 flex">
+      <span class="text-gray-500 italic mr-12">by <%= @post.user.name.familiar %></span>
+      <% if current_user == @post.user %>
+        <div>
+          <%= link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?' }, class: 'text-red-500 hover:text-red-700 underline' %>
+          <%= link_to 'Edit', edit_post_path(@post), class: 'text-green-500 hover:text-green-700 underline ml-3' %>
+        </div>
+      <% end %>
+    </>
+  </header>
+  <main class="mb-5">
+    <p><%= @post.content %></p>
+  </main>
+  <footer>
+    <h2 class="text-2xl mb-5">Comments (<%= @post.comments.count %>)</h2>
 
-<p>
-  <strong>User:</strong>
-  <%= @post.user_id %>
-</p>
+    <%= form_with(model: [@post, @comment], method: :post) do |form| %>
+      <div class="mb-3">
+        <%= form.rich_text_area :content, placeholder: "Comment..." %>
+      </div>
+      <%= form.submit 'Comment', class: 'w-full text-center py-3 rounded bg-green-500 text-white hover:bg-green-600 duration-300 cursor-pointer' %>
+    <% end %>
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+    <section class="mt-5">
+      <%= render @post.comments %>
+    </section>
+  </footer>
+</article>
